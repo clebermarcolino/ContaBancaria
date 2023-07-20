@@ -95,7 +95,7 @@ public class ContaBanco {
     }
 
     public void sacar(double valorSaque) {
-        if(status && valorSaque <= saldo) {
+        if(status && valorSaque <= saldo && valorSaque > 0) {
             setSaldo(getSaldo() - valorSaque);
             System.out.println("Saque depositado com sucesso! ");
         }
