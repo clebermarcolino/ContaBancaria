@@ -104,23 +104,17 @@ public class ContaBanco {
         }
     }
 
-    public void pagarMensal() {
-        if(saldo <= 0) {
-            System.out.println("Sem saldo! ");
-        }
-        else if(tipoConta.equals("cc") && saldo >= 12) {
-            setSaldo(getSaldo() - 12);
-            System.out.println("Mensalidade de 12 reais! ");
-        } else if(tipoConta.equals("cp") && saldo >= 20) {
-            setSaldo(getSaldo() - 20);
-            System.out.println("Mensalidade de 20 reias");
-        }
-        else {
-            System.out.println("Não há saldo suficiente! ");
-        }
+    public void pagarMensalidade() {
+            if (saldo <= 0) {
+                System.out.println("Sem saldo! ");
+            } else if (tipoConta.equals("cc") && saldo >= 12) {
+                setSaldo(getSaldo() - 12);
+                System.out.println("Mensalidade de 12 reais! ");
+            } else if (tipoConta.equals("cp") && saldo >= 20) {
+                setSaldo(getSaldo() - 20);
+                System.out.println("Mensalidade de 20 reias");
+            } else {
+                System.out.println("Não há saldo suficiente! ");
+            }
     }
-
-
-
-
 }

@@ -43,7 +43,7 @@ public class Main {
                     break;
 
                 case 3:
-                    conta.pagarMensal();
+                    conta.pagarMensalidade();
                     System.out.printf("Saldo: %.2f %n",conta.getSaldo());
                     break;
 
