@@ -62,17 +62,20 @@ public class TestContaBanco {
     }
 
     @Test
-    public void testPagarMensalidade() {
+    public void testPagarMensalidadeContaCorrente() {
         conta.abrirConta("cc");
         conta.depositar(100);
 
         conta.pagarMensalidade();
         assertEquals(138, conta.getSaldo());
+    }
 
-        conta.setTipoConta("cp");
-        conta.depositar(100);
+    @Test
+    public void testPagarMensalidadeContaPoupanca() {
+        conta.abrirConta("cp");
+        conta.depositar(90);
 
         conta.pagarMensalidade();
-        assertEquals(218, conta.getSaldo());
+        assertEquals(220, conta.getSaldo());
     }
 }
