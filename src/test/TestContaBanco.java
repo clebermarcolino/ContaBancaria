@@ -1,5 +1,6 @@
-package ContaBanco;
+package test;
 
+import main.ContaBanco;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
