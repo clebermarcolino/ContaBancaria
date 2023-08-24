@@ -18,7 +18,7 @@ public class ContaBanco {
 
     public void setNumConta(int numConta) {
         if(numConta <= 0) {
-            throw new RuntimeException("Número de conta inválido");
+            throw new IllegalArgumentException("Número de conta inválido");
         }
         else {
             this.numConta = numConta;
@@ -31,7 +31,8 @@ public class ContaBanco {
 
     public void setTipoConta(String tipoConta) {
         if(!tipoConta.equals("cp") && !tipoConta.equals("cc")) {
-            throw new RuntimeException("Tipo de conta inválida! Digite cc para conta corrente e cp para conta poupança. ");
+            throw new IllegalArgumentException("Tipo de conta inválida!" +
+                    " Digite cc para conta corrente e cp para conta poupança. ");
         }
         else {
             this.tipoConta = tipoConta;
@@ -43,7 +44,12 @@ public class ContaBanco {
     }
 
     public void setTitular(String titular) {
-        this.titular = titular;
+        if(titular.isEmpty()) {
+            throw new IllegalArgumentException("Titular inválido ");
+        }
+        else {
+            this.titular = titular;
+        }
     }
 
     public double getSaldo() {
@@ -51,7 +57,12 @@ public class ContaBanco {
     }
 
     public void setSaldo(double saldo) {
-        this.saldo = saldo;
+        if(saldo < 0) {
+            throw new IllegalArgumentException("Saldo inválido ");
+        }
+        else {
+            this.saldo = saldo;
+        }
     }
 
     public boolean isStatus() {
@@ -63,24 +74,24 @@ public class ContaBanco {
     }
 
     public void abrirConta(String tipo) {
-        setTipoConta(tipo);
-        setStatus(true);
+            setTipoConta(tipo);
+            setStatus(true);
 
-        if(tipo.equals("cp")) {
-            setSaldo(getSaldo() + 150);
-        }
-        else {
-            setSaldo(getSaldo() + 50);
-        }
-        System.out.println("Conta aberta com sucesso. ");
+            if (tipo.equals("cp")) {
+                setSaldo(getSaldo() + 150);
+            } else {
+                setSaldo(getSaldo() + 50);
+            }
+        System.out.println("Conta aberta com sucesso ");
     }
+
     public void fecharConta() {
         if(saldo > 0) {
             System.out.println("Não é possível fechar a conta, pois a conta contém saldo. ");
         }
         else {
             setStatus(false);
-            System.out.println("Conta fechada com sucesso. ");
+            System.out.println("Conta fechada com sucesso ");
         }
     }
 
