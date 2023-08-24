@@ -1,6 +1,6 @@
-package ContaBanco;
+package main;
 
-import ContaBanco.ContaBanco;
+import banco.ContaBanco;
 
 import java.util.Scanner;
 

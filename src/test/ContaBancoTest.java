@@ -1,10 +1,11 @@
-package ContaBanco;
+package test;
 
+import banco.ContaBanco;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-public class TestContaBanco {
+public class ContaBancoTest {
     private ContaBanco conta;
 
     @BeforeEach
